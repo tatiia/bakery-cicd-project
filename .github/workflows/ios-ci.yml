@@ -1,1 +1,29 @@
+name: iOS CI/CD Pipeline
 
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-ios:
+    name: Build iOS Application
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Check Xcode version
+        run: |
+          xcodebuild -version
+
+      - name: Build iOS project
+        working-directory: BakeryApp
+        run: |
+          xcodebuild \
+            -project BakeryApp.xcodeproj \
+            -scheme BakeryApp \
+            -destination 'generic/platform=iOS Simulator' \
+            clean build
