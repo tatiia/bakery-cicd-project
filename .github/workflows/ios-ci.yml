@@ -20,7 +20,7 @@ jobs:
           xcodebuild -version
 
       - name: Build iOS project
-        working-directory: BakeryApp
+        working-directory: bakery-project/BakeryApp
         run: |
           xcodebuild \
             -project BakeryApp.xcodeproj \
