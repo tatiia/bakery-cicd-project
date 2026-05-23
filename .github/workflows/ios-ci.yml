@@ -27,3 +27,4 @@ jobs:
             -scheme BakeryApp \
             -destination 'generic/platform=iOS Simulator' \
             clean build
+
